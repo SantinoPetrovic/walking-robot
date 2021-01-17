@@ -1,0 +1,17 @@
+<form *ngIf="moveRobotShow === true" [formGroup]="moveRobotForm" (ngSubmit)="moveRobotSubmit()">
+
+  <div class="form-group col-md-12 mb-4">
+    <label class="col-md-3">Write the robot's commands</label>
+    <div class="col-md-9">
+      <input class="form-control" id="robotCommands" type="text" formControlName="robotCommands">
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <button type="submit" class="btn btn-primary">Move the robot!</button>
+  </div>
+
+  <div *ngIf="(position | json) != '{}'" class="results">
+    <p>Location: ({{position.locationWidth}}, {{position.locationHeight}}, {{position.shortname}})</p>
+  </div>
+</form>

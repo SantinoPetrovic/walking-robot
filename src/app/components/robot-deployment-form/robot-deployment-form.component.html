@@ -1,0 +1,40 @@
+<form *ngIf="robotDeploymentShow === true" [formGroup]="robotDeploymentForm" (ngSubmit)="deployRobotSubmit()">
+
+  <div class="form-group col-md-12 mb-4">
+    <label class="col-md-3">Size of room ( example format: 5x5 )</label>
+    <div class="col-md-2">
+      <input class="form-control" id="sizeWidth" type="number" formControlName="sizeWidth">
+    </div>
+    <span class="col-md-2">x</span>
+    <div class="col-md-2">
+      <input class="form-control" id="sizeHeight" type="number" formControlName="sizeHeight">
+    </div>
+  </div>
+
+  <div class="form-group col-md-12 mb-4">
+    <label for="location" class="col-md-3">Robot's location ( example format: 0 x 1 )</label>
+    <div class="col-md-2">
+      <input class="form-control" id="locationWidth" type="number" formControlName="locationWidth">
+    </div>
+    <span class="col-md-2">x</span>
+    <div class="col-md-2">
+      <input class="form-control" id="locationHeight" type="number" formControlName="locationHeight">
+    </div>
+  </div>
+
+  <div class="form-group col-md-12 mb-4">
+    <label for="direction" class="col-md-3">Robot's direction</label>
+    <!-- <input class="form-control" id="direction" type="text" formControlName="direction"> -->
+    <div class="col-md-2">
+      <select class="form-control" formControlName="directionId" id="direction">
+        <option *ngFor="let direction of directions;" [ngValue]="direction.id">
+          {{direction.name}}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <button type="submit" class="btn btn-primary">Deploy!</button>
+  </div>
+  
+</form>
